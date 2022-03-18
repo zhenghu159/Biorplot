@@ -3,6 +3,9 @@
 Some plots commonly used in scRNAseq analysis.\
 The test data used in Examples is [Seurat Tutorial Data](https://satijalab.org/seurat/archive/v3.1/pbmc3k_tutorial.html)\
 ```{r,eval = FALSE}
+# first you should install and library Seurat packages
+install.packages("Seurat") 
+library(Seurat)
 # load test data
 seuratobject <- readRDS("testdata/pbmc3k_final.rds")
 # colors

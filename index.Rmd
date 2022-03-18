@@ -18,11 +18,24 @@ github-repo: rstudio/bookdown-demo
 
 # Installation & Usage
 
-TODO
+You can download the package from [Biorplot GitHub Page](https://github.com/zhenghu159/Biorplot):\
+```{r,eval = FALSE}
+git clone https://github.com/zhenghu159/Biorplot.git
+```
+Then load the package by:\
+```{r,eval = FALSE}
+source('Biorplot.R')
+```
 
 ## Dependence
 
-
+You should install these dependence:\
+[scales](https://github.com/r-lib/scales), [ggsci](https://github.com/nanxstats/ggsci), 
+[ggthemes](https://github.com/jrnold/ggthemes), [ggplot2](https://github.com/tidyverse/ggplot2), 
+[cowplot](https://github.com/wilkelab/cowplot), [ggrepel](https://github.com/slowkow/ggrepel)
+```{r,eval = FALSE}
+install.packages(c("scales","ggsci","ggthemes","ggplot2","cowplot","ggrepel"))
+```
 
 ## example
 

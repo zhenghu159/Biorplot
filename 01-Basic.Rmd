@@ -23,6 +23,9 @@ nodePadding=10, margin=NULL, height=600, width=600, sinksRight=TRUE)\
 * sinksRight: boolean. If TRUE, the last nodes are moved to the right border of the plot\
 **Examples**\
 ```{r,eval = FALSE}
+# first you should install and library networkD3 packages
+install.packages("networkD3") 
+library(networkD3)
 # links data, colnames must have 'source' 'target' 'value'
 links <- data.frame(
   source=c("C","A", "B", "E", "D"), 
