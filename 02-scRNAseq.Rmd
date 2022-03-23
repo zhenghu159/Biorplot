@@ -55,5 +55,32 @@ p
 ```
 ![](images/Bior_FeatureVlnplot.png)
 
+## Bior_DoHeatmap
 
+**Description**\
+Plot based on Seurat::DoHeatmap()\
+**Usage**\
+Bior_DoHeatmap(seuratobject, features, group.by="ident", group.bar=TRUE, 
+group.colors=NULL, group.size=5, group.label=TRUE, gene.size=5, gene.label=TRUE, 
+margin=margin(0,0,0,0))\
+**Arguments**\
+* seuratobject: Seurat object\
+* features: A vector of top genes\
+* group.by: A vector of variables to group cells by; pass 'ident' to group by cell identity classes\
+* group.bar: Add a color bar showing group status for cells\
+* group.colors: Colors to use for the color bar\
+* group.size: Size of text above color bar\
+* group.label: Label the cell identies above the color bar\
+* gene.size: gene label size\
+* gene.label: whether to show gene label\
+* margin: R margin\
+**Examples**\
+```{r,eval = FALSE}
+library(dplyr)
+pbmc.markers <- FindAllMarkers(seuratobject, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+top10 <- pbmc.markers %>% group_by(cluster) %>% top_n(n = 10, wt = avg_log2FC)
+p <- Bior_DoHeatmap(seuratobject, top10$gene, group.colors=cols, group.size=3, gene.label=F,  margin=margin(20,20,0,0))
+p
+```
+![](images/Bior_DoHeatmap.png)
 

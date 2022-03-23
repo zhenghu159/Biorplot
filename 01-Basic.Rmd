@@ -5,8 +5,9 @@ Some basic plots commonly used
 ## Bior_Sankey
 
 **Description**\
-A sankey plot, you can use Nodes.colour and Nodes.order to set Nodes colour and
-order, this function will automatically remove links$value==0 rows\
+sankey plot based on networkD3::sankeyNetwork(), you can use Nodes.colour and 
+Nodes.order to set Nodes colour and order, this function will automatically remove 
+links$value==0 rows\
 **Usage**\
 Bior_Sankey(links, Nodes.colour=NULL, Nodes.order=NULL, fontSize=12,nodeWidth=30, 
 nodePadding=10, margin=NULL, height=600, width=600, sinksRight=TRUE)\
@@ -42,11 +43,10 @@ saveNetwork(p,"sankey.html")
 ```
 ![](images/Bior_Sankey.png)
 
-
 ## Bior_pie
 
 **Description**\
-Pie plot\
+Pie plot based on ggplot\
 **Usage**\
 Bior_pie(x, labels, col=pal_d3("category20",alpha=0.7)(20), title="", fontsize=20, legend.key.size=1)\
 **Arguments**\
@@ -66,4 +66,40 @@ p
 ```
 ![](images/Bior_pie.png)
 
+## Bior_StackBarplot
+
+**Description**\
+Stacked Barplot based on ggplot\
+**Usage**\
+Bior_StackBarplot(data, x.order=NULL, type.order=NULL, col=category20, label.size=5, 
+labs.x='', labs.y='', title='', legend.key.size=1, text.size=15, bar.width=0.7, 
+theme=theme_bw())\
+**Arguments**\
+* data: A dataframe, the columns are x-axis sample, the rows are fill type\
+* x.order: x axis sample order\
+* type.order: fill type order\
+* col:fill colours\
+* label.size: label size\
+* labs.x: x axis title\
+* labs.y: y axis title\
+* title: figure title\
+* legend.key.size: legend size\
+* text.size: text size\
+* bar.width: bar width\
+* theme: choose ggthemes, eg:theme_bw(), theme_classic()\
+**Examples**\
+```{r,eval = FALSE}
+data <- data.frame(matrix(rnorm(20, mean = 20, sd = 5),c(4,5)))
+data <- round(data)
+rownames(data) <- paste('gene',1:4, sep='')
+colnames(data) <- paste('sample',1:5,sep='')
+x.order <- c('sample1','sample5','sample4','sample3','sample2')
+type.order <- c('gene1','gene2','gene3','gene4')
+col <- pal_d3("category20")(20)[11:20]
+p <- Bior_StackBarplot(data, x.order=x.order, type.order=type.order, col = col,
+                  labs.x='Samples', labs.y='Numbers', title='Test Bior_StackBarplot',
+                  theme=theme_minimal())
+p
+```
+![](images/Bior_StackBarplot.png)
 
